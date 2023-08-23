@@ -16,6 +16,9 @@ jobs:
        uses: cypress-io/github-action@v5.0.8 
        with: 
          command: "npm run cy:test"
+         record: true
+       env:
+         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
      - name: Upload videos
        uses: actions/upload-artifact@v3.1.2 
        if: always() 
@@ -41,6 +44,10 @@ jobs:
        uses: cypress-io/github-action@v5.0.8 
        with: 
          command: "npm run cy:test:firefox"
+         record: true
+       env:
+         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
      - name: Upload videos
        uses: actions/upload-artifact@v3.1.2 
        if: always() 
